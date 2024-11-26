@@ -1,0 +1,345 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+
+
+/* -------------------- Início --------------------*/
+
+.section-home {
+    background:url(img/home\ img.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #634832;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    min-height: 100vh;
+}
+
+.line {
+    position: relative;
+    border-bottom: 1px solid #ece0d1;
+    z-index: 5;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+    font-size: 15px;
+
+}
+
+.enough {
+    width: 180.05px;
+}
+
+.menu a {
+    position: relative;
+    font-size: 1.1em;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #ece0d1;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navbar a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.info-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8rem;
+}
+
+.home-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-description span {
+    font-size: 1.1em;
+    color: #ece0d1de;
+}
+
+.title {
+    text-shadow: 6px 0px 11px rgba(0, 0, 0, 0.25);
+    font-size: 2.5rem;
+    color: #ece0d1;
+    text-align: center;
+}
+
+.title span {
+    color: #ece0d1;
+}
+
+.descripton {
+    color: #ece0d1;
+    font-size: 18px;
+    max-width: 500px;
+    margin-bottom: 5rem;
+    text-align: center;
+}
+
+.btn-contact a {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    background: #ece0d1;
+    color: #634832;
+    padding: 10px 25px;
+    transition: 0.3s;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.btn-contact a:hover {
+    color: #ece0d1;
+    background: #b88f61;
+}
+
+/* -------------------- Sobre --------------------*/
+#about {
+    background-color: #13100e;
+    min-height: 100vh;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.title-about {
+    padding-top: 2.5rem;
+    text-align: center;
+    color: #ece0d1;
+    font-weight: 200;
+    font-size: 25px;
+    margin-bottom: 1rem;
+}
+
+.infos-about {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    color: #ece0d1;
+}
+
+.first-info {
+    position: relative;
+    width: 400px;
+}
+
+.first-info h2 {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.card-about {
+    position: absolute;
+    bottom: -10%;
+    left: 10%;
+    border-radius: 6px;
+    height: 70px;
+    width: 80%;
+    text-align: center;
+    background: #ece0d1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .8);
+}
+
+.card-about a {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    font-weight: 500;
+    color: #634832;
+}
+
+.card-about span {
+    font-size: 16px;
+}
+
+#phone {
+    font-size: 1em;
+}
+
+.second-info {
+    width: 400px;
+}
+
+.second-info p {
+    font-size: 14px;
+}
+
+.second-info img {
+    margin-top: 1.5rem;
+}
+
+.spans-about {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 14px;
+}
+
+.spans-about i {
+    margin-right: 10px;
+}
+
+
+.infos-about img {
+    border-radius: 10px;
+    width: 400px;
+}
+
+.btn-about {
+    margin-bottom: 1.5rem;
+}
+
+.btn-about a {
+    background: #ece0d1;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* -------------------- Produtos --------------------*/
+
+.produtos {
+    position: relative;
+    color: #ece0d1;
+    background: url(img/products-img.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.info-produtos {
+    margin-bottom: 1.5rem;
+}
+
+.info-produtos h1 {
+    text-align: center;
+    font-size: 32px;
+}
+
+.info-produtos p {
+    text-align: center;
+}
+
+.info-produtos .descripton {
+    color: #ffffffbc;
+}
+
+.slider{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 370px;
+    overflow: hidden;
+}
+.item{
+    position: absolute;
+    width: 400px;
+    height: 320px;
+    text-align: justify;
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    transition: 0.5s;
+    color: #ece0d1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 12px;
+
+}
+
+.item h2 {
+    text-align: center;
+}
+
+.item img {
+    width: 150px;
+    height: 170px;
+}
+
+.item span {
+    margin-bottom: 5px;
+}
+
+.item .btn-cards a {
+    color: #634832;
+    font-weight: 500;
+    background: #ece0d1;
+    padding: 5px 10px;
+    border-radius: 10px;
+    transition: ease 0.3s;
+
+}
+
+.item .btn-cards a:hover {
+    color: #ece0d1;
+    background: #634832;
+}
+
+#next, #prev{
+    position: absolute;
+    top: 40%;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    font-size: xxx-large;
+    font-family: monospace;
+    font-weight: bold;
+    left: 400px;
+}
+#next{
+    left: unset;
+    right: 400px;
+}
+
+.btn-produtos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.btn-produtos a {
+    background: #ece0d1;
+    padding: 5px 25px;
+    border-radius: 10px;
+    color: #634832;
+    font-weight: 500;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .1);
+}

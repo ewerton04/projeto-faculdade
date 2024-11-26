@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Produto</title>
+</head>
+<body>
+
+    <h1>Adicionar Produto ao JSON</h1>
+    
+    <!-- Formulário para adicionar produto -->
+    <form id="formulario">
+        <label for="id">ID:</label>
+        <input type="number" id="id" name="id" required><br><br>
+
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="price">Preço:</label>
+        <input type="number" id="price" name="price" required><br><br>
+
+        <label for="image">Imagem:</label>
+        <input type="file" id="image" name="image" accept="image/*" required><br><br>
+
+        <button type="submit">Adicionar Item</button>
+    </form>
+
+    <h2>Produtos no JSON:</h2>
+    <pre id="jsonExibido">[]</pre>
+
+    <div id="product-list"></div>
+
+    <script>
+        // Carregar o JSON dos produtos do localStorage, ou usar um array padrão
+        let itensJSON = JSON.parse(localStorage.getItem('products')) || [
+            {
+                "id": 1,
+                "name": "LD01 LOUNGE CHAIR",
+                "price": 200,
+                "image": "image/1.png"
+            },
+            {
+                "id": 2,
+                "name": "LD02 LOUNGE CHAIR",
+                "price": 250,
+                "image": "image/2.png"
+            },
+            {
+                "id": 3,
+                "name": "LD03 LOUNGE CHAIR",
+                "price": 290,
+                "image": "image/3.png"
+            }
+        ];
+
+        // Função para exibir produtos na tela
+        const addDataToHTML = () => {
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = ''; // Limpa a lista de produtos antes de adicionar novos
+
+            itensJSON.forEach(product => {
+                const productDiv = document.createElement('div');
+                productDiv.innerHTML = `
+                    <img src="${product.image}" alt="Imagem do Produto" width="100">
+                    <h2>${product.name}</h2>
+                    <p>Preço: $${product.price}</p>
+                    <button class="remove-btn" data-id="${product.id}">Remover</button>
+                `;
+                productList.appendChild(productDiv);
+            });
+
+            // Adiciona event listener para o botão "Remover"
+            const removeButtons = document.querySelectorAll('.remove-btn');
+            removeButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const productId = parseInt(e.target.getAttribute('data-id'));
+                    removeProduct(productId);
+                });
+            });
+        };
+
+        // Função para remover um produto da lista
+        const removeProduct = (id) => {
+            // Filtra o produto com o ID correspondente e o remove da lista
+            itensJSON = itensJSON.filter(product => product.id !== id);
+
+            // Atualiza o localStorage
+            localStorage.setItem('products', JSON.stringify(itensJSON));
+
+            // Atualiza a exibição dos produtos
+            addDataToHTML();
+        };
+
+        // Função para lidar com a submissão do formulário
+        document.getElementById('formulario').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio do formulário
+
+            // Coletar os dados do formulário
+            const id = document.getElementById('id').value;
+            const name = document.getElementById('name').value;
+            const price = document.getElementById('price').value;
+            const imageFile = document.getElementById('image').files[0];
+
+            if (!imageFile) {
+                alert("Por favor, selecione uma imagem.");
+                return;
+            }
+
+            // Criar URL temporária da imagem
+            const imageURL = URL.createObjectURL(imageFile);
+
+            // Adicionar novo produto ao array de produtos
+            const novoProduto = {
+                id: parseInt(id),
+                name: name,
+                price: parseFloat(price),
+                image: imageURL
+            };
+
+            itensJSON.push(novoProduto);
+
+            // Salvar a lista de produtos atualizada no localStorage
+            localStorage.setItem('products', JSON.stringify(itensJSON));
+
+            // Atualizar a exibição de produtos
+            addDataToHTML();
+
+            // Limpar o formulário
+            document.getElementById('formulario').reset();
+        });
+
+        // Inicializar a aplicação carregando os dados
+        const initApp = () => {
+            addDataToHTML();
+        };
+
+        initApp(); // Carregar os dados ao iniciar
+
+    </script>
+</body>
+</html>
