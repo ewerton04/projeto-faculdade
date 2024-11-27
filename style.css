@@ -54,6 +54,7 @@ header::before {
     color: #ece0d1;
     cursor: pointer;
     display: none;
+    z-index: 110;
 }
 
 #check {
@@ -429,7 +430,7 @@ header::before {
 
     .icons {
         display: inline-flex;
-        z-index: 100;
+        z-index: 110;
     }
 
     .icons #close_icon {
@@ -460,8 +461,9 @@ header::before {
 
     #check:checked~.navbar {
         height: 15rem;
-        backdrop-filter: blur(20px);
+        backdrop-filter: blur(100px);
         box-shadow: 0 0 30px rgba(0, 0, 0, .8);
+        border-radius: 0 0 40px 40px;
     }
     
     .navbar a {
