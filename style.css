@@ -32,7 +32,6 @@ header::before {
     height: 100%;
     top: 0;
     left: 0;
-
 }
 
 .navbar {
@@ -59,91 +58,6 @@ header::before {
 #check {
     display: none;
 }
-
-@media (max-width: 1000px) {
-    .navbar {
-        justify-content: center;
-        padding: 1rem 5%;
-        gap: 1rem;
-    }
-
-    .enough {
-        width: 0;
-    }
-
-    .section-home {
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-}
-
-@media (max-width: 802px) {
-
-    .header {
-        padding-top: 1rem;
-    }
-
-    .icons {
-        display: inline-flex;
-        z-index: 100;
-    }
-
-    .icons #close_icon {
-        display: none;
-    }
-
-    #check:checked~.icons #menu_icon {
-        display: none;
-    }
-
-    #check:checked~.icons #close_icon {
-        display: block;
-    }
-
-    .btn-contact {
-        display: none;
-    }
-
-    .navbar {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 0;
-        overflow: hidden;
-        transition: .3s ease;
-    }
-
-    #check:checked~.navbar {
-        height: 15rem;
-        backdrop-filter: blur(20px);
-        box-shadow: 0 0 30px rgba(0, 0, 0, .8);
-    }
-    
-    .navbar a {
-        display: block;
-        margin: 1rem 0;
-        text-align: center;
-    }
-
-    .line {
-        display: none;
-    }
-    
-    .menu {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-
-    .menu a {
-        margin-left: 0;
-    }
-}
-
-
 
 .menu a {
     position: relative;
@@ -177,7 +91,7 @@ header::before {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 8rem;
+    min-height: 100vh;
 }
 
 .home-description {
@@ -185,6 +99,7 @@ header::before {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
 }
 
 .home-description span {
@@ -348,7 +263,10 @@ header::before {
 }
 
 .info-produtos {
-    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .info-produtos h1 {
@@ -428,18 +346,17 @@ header::before {
     font-size: xxx-large;
     font-family: monospace;
     font-weight: bold;
-    left: 400px;
+    left: 200px;
 }
 #next{
     left: unset;
-    right: 400px;
+    right: 200px;
 }
 
 .btn-produtos {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2rem;
 }
 
 .btn-produtos a {
@@ -468,6 +385,152 @@ header::before {
     .card-about {
         display: none;
     }
+
+    #next, #prev {
+        left: 150px;
+    }
+    #next{
+        left: unset;
+        right: 150px;
+    }
+
+    .info-produtos p {
+        max-width: 700px;
+    }
+}
+
+/* -------------------- Responsividade --------------------*/
+
+@media (max-width: 1000px) {
+    .navbar {
+        justify-content: center;
+        padding: 1rem 5%;
+        gap: 1rem;
+    }
+
+    .enough {
+        width: 0;
+    }
+
+    .section-home {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+
+@media (max-width: 802px) {
+
+    .header {
+        padding-top: 1rem;
+    }
+
+    .icons {
+        display: inline-flex;
+        z-index: 100;
+    }
+
+    .icons #close_icon {
+        display: none;
+    }
+
+    #check:checked~.icons #menu_icon {
+        display: none;
+    }
+
+    #check:checked~.icons #close_icon {
+        display: block;
+    }
+
+    .btn-contact {
+        display: none;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        transition: .3s ease;
+    }
+
+    #check:checked~.navbar {
+        height: 15rem;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 0 30px rgba(0, 0, 0, .8);
+    }
+    
+    .navbar a {
+        display: block;
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    .line {
+        display: none;
+    }
+    
+    .menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .menu a {
+        margin-left: 0;
+    }
+
+    .first-info h2 {
+        font-size: 22px;
+    }
+
+    #next, #prev {
+        left: 100px;
+    }
+    #next{
+        left: unset;
+        right: 100px;
+    }
+
+    .item{
+        font-size: 80%;
+        width: 250px;
+        height: 300px;
+    }
+
+    .info-produtos p {
+        text-align: center;
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 500px) {
+    #next, #prev {
+        left: 70px;
+    }
+    #next{
+        left: unset;
+        right: 70px;
+    }
+
+    .item{
+        font-size: 80%;
+        width: 220px;
+        height: 300px;
+    }
+
+    .info-produtos h1 {
+        font-size: 22px;
+    }
+
+    .info-produtos p {
+        text-align: center;
+        max-width: 340px;
+    }
 }
 
 @media (max-width: 450px) {
@@ -482,5 +545,13 @@ header::before {
 
     .infos-about img {
         width: 340px;
+    }
+
+    #next, #prev {
+        left: 40px;
+    }
+    #next{
+        left: unset;
+        right: 40px;
     }
 }
