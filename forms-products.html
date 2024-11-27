@@ -34,25 +34,44 @@
     <script>
         // Carregar o JSON dos produtos do localStorage, ou usar um array padrão
         let itensJSON = JSON.parse(localStorage.getItem('products')) || [
-            {
-                "id": 1,
-                "name": "LD01 LOUNGE CHAIR",
-                "price": 200,
-                "image": "image/1.png"
-            },
-            {
-                "id": 2,
-                "name": "LD02 LOUNGE CHAIR",
-                "price": 250,
-                "image": "image/2.png"
-            },
-            {
-                "id": 3,
-                "name": "LD03 LOUNGE CHAIR",
-                "price": 290,
-                "image": "image/3.png"
-            }
-        ];
+    {
+        "id": 1,
+        "name":" Café New Orleans",
+        "price": 60.00,
+        "image": "image/1.png"
+    },
+    {
+        "id": 2,
+        "name":" Café Brazil",
+        "price": 60.00,
+        "image": "image/2.png"
+    },
+    {
+        "id": 3,
+        "name":" Café Morocan",
+        "price": 60.00,
+        "image": "image/3.png"
+    },
+    {
+        "id": 4,
+        "name":" Café Italian",
+        "price": 60.00,
+        "image": "image/4.png"
+    },
+    {
+        "id": 5,
+        "name":" Café French",
+        "price": 60.00,
+        "image": "image/5.png"
+    },
+    {
+        "id": 6,
+        "name":" Café Viennese",
+        "price": 60.00,
+        "image": "image/6.png"
+    }
+
+];
 
         // Função para exibir produtos na tela
         const addDataToHTML = () => {

@@ -17,17 +17,46 @@ body {
     padding: 0 5rem;
 }
 
+.line {
+    position: relative;
+    border-bottom: 1px solid #ece0d1;
+    z-index: 5;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
 .navbar {
+    position: relative;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 2rem 0;
     font-size: 15px;
-
+    z-index: 100;
 }
 
 .enough {
     width: 180.05px;
+}
+
+.icons {
+    position: absolute;
+    right: 5%;
+    font-size: 1.5rem;
+    color: #ece0d1;
+    cursor: pointer;
+    display: none;
+    z-index: 110;
+}
+
+#check {
+    display: none;
 }
 
 .menu a {
@@ -53,21 +82,26 @@ body {
     transition: transform .5s;
 }
 
+.navbar a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
 .btn-contact a {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-    background: #634832;
-    color: #ece0d1;
+    background: #ece0d1;
+    color: #634832;
     padding: 10px 25px;
     transition: 0.3s;
     border-radius: 10px;
     font-weight: 500;
+    z-index: 100;
     text-decoration: none;
 }
 
-.line {
-    position: relative;
-    border-bottom: 1px solid #ece0d1;
-    z-index: 5;
+.btn-contact a:hover {
+    color: #ece0d1;
+    background: #b88f61;
 }
 
 .contact h2 {
@@ -161,4 +195,109 @@ form button {
 
 form button:hover {
     box-shadow: none;
+}
+
+/* -------------------- Responsividade --------------------*/
+
+@media (max-width: 1000px) {
+    .navbar {
+        justify-content: center;
+        padding: 1rem 5%;
+        gap: 1rem;
+    }
+
+    .enough {
+        width: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .btn-contact {
+        display: none;
+    }
+}
+
+
+@media (max-width: 802px) {
+
+    .header {
+        padding-top: 1rem;
+    }
+
+    .icons {
+        display: inline-flex;
+        z-index: 110;
+    }
+
+    .icons #close_icon {
+        display: none;
+    }
+
+    #check:checked~.icons #menu_icon {
+        display: none;
+    }
+
+    #check:checked~.icons #close_icon {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        transition: .3s ease;
+    }
+
+    #check:checked~.navbar {
+        height: 15rem;
+        backdrop-filter: blur(100px);
+        box-shadow: 0 0 30px rgba(0, 0, 0, .8);
+        border-radius: 0 0 40px 40px;
+    }
+    
+    .navbar a {
+        display: block;
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    .line {
+        display: none;
+    }
+    
+    .menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .menu a {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 602px) {
+
+    body {
+        padding: 0 1rem;
+    }
+
+    .field .item {
+        width: 100%;
+    }
+
+    .forms-box {
+        gap: 5px;
+    }
+
+    form .textarea-field .item {
+        resize: none;
+        width: 95%;
+        height: 150px;
+    }
 }
