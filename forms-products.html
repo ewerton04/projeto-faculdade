@@ -76,7 +76,7 @@
         // Função para exibir produtos na tela
         const addDataToHTML = () => {
             const productList = document.getElementById('product-list');
-            productList.innerHTML = ''; // Limpa a lista de produtos antes de adicionar novos
+            productList.innerHTML = '';
 
             itensJSON.forEach(product => {
                 const productDiv = document.createElement('div');
@@ -89,7 +89,6 @@
                 productList.appendChild(productDiv);
             });
 
-            // Adiciona event listener para o botão "Remover"
             const removeButtons = document.querySelectorAll('.remove-btn');
             removeButtons.forEach(button => {
                 button.addEventListener('click', (e) => {
@@ -99,23 +98,19 @@
             });
         };
 
-        // Função para remover um produto da lista
         const removeProduct = (id) => {
-            // Filtra o produto com o ID correspondente e o remove da lista
             itensJSON = itensJSON.filter(product => product.id !== id);
 
             // Atualiza o localStorage
             localStorage.setItem('products', JSON.stringify(itensJSON));
 
-            // Atualiza a exibição dos produtos
             addDataToHTML();
         };
 
-        // Função para lidar com a submissão do formulário
         document.getElementById('formulario').addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede o envio do formulário
+            event.preventDefault(); 
 
-            // Coletar os dados do formulário
+           
             const id = document.getElementById('id').value;
             const name = document.getElementById('name').value;
             const price = document.getElementById('price').value;
@@ -126,10 +121,10 @@
                 return;
             }
 
-            // Criar URL temporária da imagem
+           
             const imageURL = URL.createObjectURL(imageFile);
 
-            // Adicionar novo produto ao array de produtos
+            
             const novoProduto = {
                 id: parseInt(id),
                 name: name,
@@ -139,22 +134,22 @@
 
             itensJSON.push(novoProduto);
 
-            // Salvar a lista de produtos atualizada no localStorage
+            
             localStorage.setItem('products', JSON.stringify(itensJSON));
 
-            // Atualizar a exibição de produtos
+           
             addDataToHTML();
 
-            // Limpar o formulário
+           
             document.getElementById('formulario').reset();
         });
 
-        // Inicializar a aplicação carregando os dados
+        
         const initApp = () => {
             addDataToHTML();
         };
 
-        initApp(); // Carregar os dados ao iniciar
+        initApp(); 
 
     </script>
 </body>
